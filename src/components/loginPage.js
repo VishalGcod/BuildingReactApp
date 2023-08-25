@@ -3,6 +3,9 @@ import {
   Button, Checkbox, Form, Input,
 } from 'antd';
 
+const getVal = localStorage.getItem('username');
+const getPass = localStorage.getItem('password');
+
 const onFinish = (values) => {
   console.log('Success:', values);
   if (values.username == 'vishal' && values.password == '123') {

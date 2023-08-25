@@ -3,7 +3,6 @@ import {
   BrowserRouter as Routers, Link, Route, Routes,
 } from 'react-router-dom';
 import CompOne from './components/compOne';
-// import CompTwo from './components/compTwo';
 import EmptyPage from './components/emptyPage';
 import { LoginForm } from './components/loginPage';
 

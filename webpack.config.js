@@ -1,12 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
 module.exports = {
+  mode: 'development',
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
     filename: 'bundle.[contenthash].js',
+    path: path.resolve(__dirname, 'build'),
+    clean: true,
+  },
+  devServer: {
+    static: './build',
   },
   module: {
     rules: [
@@ -15,7 +18,19 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+          options:
+            {
+              presets: ['@babel/preset-react', '@babel/preset-env']
+            },
         },
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       },
     ],
   },
@@ -23,10 +38,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
-    new CleanWebpackPlugin(),
   ],
-  devServer: {
-    static: path.resolve(__dirname, 'build'),
-    hot: true,
+  resolve: {
+    alias: {
+      icons: path.resolve(__dirname, 'src/icons'),
+    },
   },
 };

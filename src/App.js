@@ -5,11 +5,16 @@ import {
 import CompOne from './components/compOne';
 import EmptyPage from './components/emptyPage';
 import { LoginForm } from './components/loginPage';
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
+import MapDatas from './components/mapDatas';
 
 function App() {
   return (
-    <div>
-      <Routers>
+
+    <div >
+      <Provider store={store}>
+      {/* <Routers>
         <div>
           <Link to="/"><span>Home</span></Link>
           <Link to="/login"><span>Login</span></Link>
@@ -19,8 +24,11 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="*" element={<EmptyPage />} />
         </Routes>
-      </Routers>
+      </Routers> */}
+      {/* <LoginForm/> */}
       <h1>Hello, React App!</h1>
+      <MapDatas />
+      </Provider>
     </div>
   );
 }

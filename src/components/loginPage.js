@@ -1,4 +1,5 @@
 import React from 'react';
+import CompOne from './compOne';
 import {
   Button, Checkbox, Form, Input,
 } from 'antd';
@@ -21,6 +22,9 @@ const onFinishFailed = (errorInfo) => {
 };
 export function LoginForm() {
   return (
+    <div>
+    {
+        getVal&&getPass ? <CompOne/> :
     <Form
       name="basic"
       labelCol={{
@@ -87,5 +91,7 @@ export function LoginForm() {
         </Button>
       </Form.Item>
     </Form>
+    }
+    </div>
   );
 }

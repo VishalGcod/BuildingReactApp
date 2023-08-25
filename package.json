@@ -8,7 +8,10 @@
     "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.2",
     "react-router-dom": "^6.15.0",
+    "redux": "^4.2.1",
+    "redux-thunk": "^2.4.2",
     "styled-components": "^6.0.7"
   },
   "scripts": {
@@ -16,7 +19,9 @@
     "build": "webpack --mode production",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write src"
+    "format": "prettier --write src",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "devDependencies": {
     "@babel/core": "^7.22.10",

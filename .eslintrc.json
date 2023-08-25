@@ -9,6 +9,7 @@
         "sourceType": "module"
     },
     "rules": {
-        "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
+        "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
     }
 }

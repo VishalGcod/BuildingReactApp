@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { apiDatas } from '../redux/actions'
+import { styled } from 'styled-components'
 
 function MapDatas() {
     const dispatch=useDispatch()

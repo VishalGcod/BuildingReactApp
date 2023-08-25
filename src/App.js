@@ -8,6 +8,8 @@ import { LoginForm } from './components/loginPage';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
 import MapDatas from './components/mapDatas';
+import Heaven from "./icons/heaven.jpeg"
+import Lense from './icons/lense';
 
 function App() {
   return (
@@ -25,8 +27,10 @@ function App() {
           <Route path="*" element={<EmptyPage />} />
         </Routes>
       </Routers> */}
-      {/* <LoginForm/> */}
+      <LoginForm/>
       <h1>Hello, React App!</h1>
+      <img src={Heaven} alt='heaven'></img> 
+     <Lense/>
       <MapDatas />
       </Provider>
     </div>

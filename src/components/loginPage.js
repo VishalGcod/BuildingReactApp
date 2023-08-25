@@ -7,12 +7,14 @@ import {
 const getVal = localStorage.getItem('username');
 const getPass = localStorage.getItem('password');
 
+
 const onFinish = (values) => {
   console.log('Success:', values);
   if (values.username == 'vishal' && values.password == '123') {
     alert('correct email and password');
     localStorage.setItem('username', 'vishal');
     localStorage.setItem('password', '123');
+    console.log(getVal,getPass);
   } else {
     alert('wrong email or password');
   }

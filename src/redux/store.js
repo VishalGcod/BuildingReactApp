@@ -1,5 +1,10 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
-import { apiReducer } from "./reducers";
+import { apiReducer, fetchingApiReducer } from "./reducers";
 
-export const store=createStore(apiReducer,applyMiddleware(thunk))
+export const rootReducer=combineReducers({
+    api1:apiReducer,
+    api2:fetchingApiReducer
+})
+
+export const store=createStore(rootReducer,applyMiddleware(thunk))

@@ -4,7 +4,7 @@ import {
   } from 'react-router-dom';
 
 export const ProtectedRoute=()=> {
-    let auth={"value":false}
+    let auth={"value":true}
   return (
     <div>
         {auth.value?<Outlet/>:<Navigate to="/login" />}

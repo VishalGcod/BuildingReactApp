@@ -6,7 +6,8 @@ import { styled } from 'styled-components'
 
 function MapDatas() {
     const dispatch=useDispatch()
-    const arr=useSelector((state)=>state.arr)
+    const arr=useSelector((state)=>state.api1.arr)
+
 
     useEffect(()=>{
         dispatch(apiDatas())

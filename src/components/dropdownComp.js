@@ -5,7 +5,7 @@ import Lense from "../icons/lense";
 const items = [
   {
     label: (
-     <Button on>Delete</Button>
+     <Button >Delete</Button>
     ),
     key: '0',
   },

@@ -2,6 +2,8 @@ export const ADD_DATA = 'ADD_DATA';
 export const ADD_API_DATA = 'ADD_API_DATA';
 export const DEL_API_DATA = 'DEL_API_DATA';
 export const EDIT_API_DATA = 'EDIT_API_DATA';
+export const POST_API_DATA ='POST_API_DATA';
+export const PROTECTED_ROUTE='PROTECTED_ROUTE'
 
 import axios from 'axios';
 
@@ -29,6 +31,20 @@ export const deleteApi = (dta) => {
 export const editApi = (dta) => {
   return {
     type: EDIT_API_DATA,
+    payload: dta,
+  };
+};
+
+export const postApi = (dta) => {
+  return {
+    type: POST_API_DATA,
+    payload: dta,
+  };
+};
+
+export const protectedRoute = (dta) => {
+  return {
+    type: PROTECTED_ROUTE,
     payload: dta,
   };
 };

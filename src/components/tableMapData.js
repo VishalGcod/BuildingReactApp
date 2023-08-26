@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteApi, editApi, fetching } from '../redux/actions';
+import { deleteApi, editApi, fetching, postApi } from '../redux/actions';
 import { Table, Button } from 'antd';
 import { styled } from 'styled-components';
 import { DropdownBar } from './dropdownComp';
@@ -36,6 +36,13 @@ function MapTableDatas() {
     updatedData[recordIndex] = {id:record.id,title:"bag",price:record.price};
     dispatch(editApi(updatedData));
   };
+  const addRow=()=>{
+    const obj={id:(array.length+1),title:'trouser',price:'30.5'}
+    const addData = [...array,obj];
+    dispatch(postApi(addData));
+    console.log(obj);
+    console.log(array.length+1);
+  }
 
   const columns = [
     {
@@ -67,6 +74,7 @@ function MapTableDatas() {
 
   return (
     <div>
+      <Button onClick={addRow}>ADD NEW ROW</Button>
       <Table
         rowSelection={{
           ...rowSelection,

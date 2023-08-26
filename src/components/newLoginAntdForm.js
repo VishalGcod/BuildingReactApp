@@ -1,22 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { protectedRoute } from '../redux/actions';
+
+export const LoginForm2 = () => {
+
+  const dispatch=useDispatch()
+  const auth=useSelector((state)=>state.authenticate.auth)
+
 const onFinish = (values) => {
-  console.log('Success:', values);
-  if(values.username=='vishal'&&values.password=='123'){
-    console.log(values.username,values.password);
-    const object={
-        name:'vishal',
-        pass:'123'
-    }
-    localStorage.setItem('data',JSON.stringify(object))
+  console.log('Success:', values); 
+  if (values.username == 'vishal' && values.password == '123') {
+    dispatch(protectedRoute(!auth))
+    console.log(auth);
+    localStorage.setItem('data', JSON.stringify(auth));
+    const getData=localStorage.getItem('data')
+    const getData2=JSON.parse(getData)
+    console.log('values :',getData2);
   }
 };
+
+const loggingOut=()=>{
+  console.log(auth);
+  dispatch(protectedRoute(!auth))
+  localStorage.setItem('data', JSON.stringify(auth));
+const getData=localStorage.getItem('data')
+const getData2=JSON.parse(getData)
+console.log('values :',getData2);
+}
+
 const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo);
 };
-export const LoginForm2 = () => (
+
+  return(
   <Form
-    name="basic"
+    name='basic'
     labelCol={{
       span: 8,
     }}
@@ -31,11 +50,11 @@ export const LoginForm2 = () => (
     }}
     onFinish={onFinish}
     onFinishFailed={onFinishFailed}
-    autoComplete="off"
+    autoComplete='off'
   >
     <Form.Item
-      label="Username"
-      name="username"
+      label='Username'
+      name='username'
       rules={[
         {
           required: true,
@@ -47,8 +66,8 @@ export const LoginForm2 = () => (
     </Form.Item>
 
     <Form.Item
-      label="Password"
-      name="password"
+      label='Password'
+      name='password'
       rules={[
         {
           required: true,
@@ -60,8 +79,8 @@ export const LoginForm2 = () => (
     </Form.Item>
 
     <Form.Item
-      name="remember"
-      valuePropName="checked"
+      name='remember'
+      valuePropName='checked'
       wrapperCol={{
         offset: 8,
         span: 16,
@@ -76,9 +95,13 @@ export const LoginForm2 = () => (
         span: 16,
       }}
     >
-      <Button type="primary" htmlType="submit">
+      <Button type='primary' htmlType='submit'>
         Submit
+      </Button>
+      <Button type='primary' onClick={loggingOut}>
+        Logout
       </Button>
     </Form.Item>
   </Form>
-);
+  )
+};

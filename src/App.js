@@ -12,12 +12,13 @@ import { ProtectedRoute } from './components/protectedRoute';
 import { LoginForm2 } from './components/newLoginAntdForm';
 import MapTableDatas from './components/tableMapData';
 import GridLayout from './components/gridLayout';
+import CondRenderTransition from './components/condRender&Transition';
 
 function App() {
   return (
     <div>
       <Provider store={store}>
-        <Routers>
+        {/* <Routers>
           <div>
             <Link to='/'>
               <span>Home</span>
@@ -27,21 +28,20 @@ function App() {
             </Link>
           </div>
           <Routes>
-            {/* <Route path='/login' element={<LoginForm />} /> */}
             <Route element={<ProtectedRoute />}>
               <Route path='/' element={<CompOne />} />
             </Route>
             <Route Component={EmptyPage} />
           </Routes>
-        </Routers>
+        </Routers> */}
         {/* <LoginForm /> */}
-        <LoginForm2/>
-        <h1>Hello, React App!</h1>
-        <img src={Heaven} alt='heaven'></img>
+        {/* <LoginForm2/> */}
+        {/* <img src={Heaven} alt='heaven'></img> */}
         <Lense />
-        <MapDatas />
-        <MapTableDatas/>
-        <GridLayout/>
+        {/* <MapDatas /> */}
+        {/* <MapTableDatas/> */}
+        {/* <GridLayout/> */}
+        <CondRenderTransition/>
       </Provider>
     </div>
   );

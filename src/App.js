@@ -11,6 +11,7 @@ import Lense from './icons/lense';
 import { ProtectedRoute } from './components/protectedRoute';
 import { LoginForm2 } from './components/newLoginAntdForm';
 import MapTableDatas from './components/tableMapData';
+import GridLayout from './components/gridLayout';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Lense />
         <MapDatas />
         <MapTableDatas/>
+        <GridLayout/>
       </Provider>
     </div>
   );

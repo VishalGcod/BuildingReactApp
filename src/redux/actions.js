@@ -1,5 +1,8 @@
 export const ADD_DATA = 'ADD_DATA';
 export const ADD_API_DATA = 'ADD_API_DATA';
+export const DEL_API_DATA = 'DEL_API_DATA';
+export const EDIT_API_DATA = 'EDIT_API_DATA';
+
 import axios from 'axios';
 
 export const appendData = (data) => {
@@ -12,6 +15,20 @@ export const appendData = (data) => {
 export const addToApi = (dta) => {
   return {
     type: ADD_API_DATA,
+    payload: dta,
+  };
+};
+
+export const deleteApi = (dta) => {
+  return {
+    type: DEL_API_DATA,
+    payload: dta,
+  };
+};
+
+export const editApi = (dta) => {
+  return {
+    type: EDIT_API_DATA,
     payload: dta,
   };
 };

@@ -42,7 +42,7 @@ background-color:lightgreen;
 function CondRenderTransition() {
   return (
     <DivGrid>
-        <DivHead></DivHead>
+        {true&&<DivHead></DivHead>}
         <DivAside></DivAside>
         <DivBody></DivBody>
         <DivFooter></DivFooter>

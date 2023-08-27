@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteApi, editApi, fetching, postApi } from '../redux/actions';
+import { deleteApi, editApi, fetching, postApi, delUsers, postUsers, updateUsers } from '../redux/actions';
 import { Table, Button } from 'antd';
 import { styled } from 'styled-components';
 import { DropdownBar } from './dropdownComp';
@@ -17,6 +17,7 @@ const rowSelection = {
 
 function MapTableDatas() {
   const dispatch = useDispatch();
+  const auth = useSelector((state) => state.authenticate.auth);
   const array = useSelector((state) => state.api2.apiData);
 
   useEffect(() => {
@@ -25,24 +26,26 @@ function MapTableDatas() {
 
   const handleDelete = (id) => {
     console.log(id);
-    const deletedArray = [...array];
-    deletedArray.splice(id, 1);
-    dispatch(deleteApi(deletedArray));
+    // const deletedArray = [...array];
+    // deletedArray.splice(id, 1);
+    dispatch(delUsers(id));
+    // dispatch(protectedRoute(!auth))
   };
 
   const handleEdit = (record, recordIndex) => {
     console.log(record, recordIndex);
     const updatedData = [...array];
-    updatedData[recordIndex] = {id:record.id,title:"bag",price:record.price};
-    dispatch(editApi(updatedData));
+    updatedData[recordIndex] = { id: record?.id, title: 'bag', price: record.price };
+    dispatch(updateUsers(recordIndex,updatedData));
+    // dispatch(protectedRoute(!auth))
   };
-  const addRow=()=>{
-    const obj={id:(array.length+1),title:'trouser',price:'30.5'}
-    const addData = [...array,obj];
-    dispatch(postApi(addData));
+  const addRow = () => {
+    const obj = { id: array?.length + 1, title: 'trouser', price: '30.5' };
+    const addData = [...array, obj];
+    dispatch(postUsers(addData));
     console.log(obj);
-    console.log(array.length+1);
-  }
+    console.log(array?.length + 1);
+  };
 
   const columns = [
     {
@@ -64,9 +67,12 @@ function MapTableDatas() {
       dataIndex: 'actions',
       render: (_, record, recordIndex) => (
         <span>
-          <Button onClick={() => handleDelete(recordIndex)}>Delete</Button>
-          <Button onClick={() => handleEdit(record, recordIndex)}>Edit</Button>
-          <DropdownBar />
+           {/* { auth? */}
+           <div>
+              <Button onClick={() => handleDelete(recordIndex)}>Delete</Button>
+              <Button onClick={() => handleEdit(record, recordIndex)}>Edit</Button>
+            </div>
+            {/* // : <DropdownBar/> */}
         </span>
       ),
     },

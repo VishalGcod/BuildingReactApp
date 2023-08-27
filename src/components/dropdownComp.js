@@ -1,7 +1,9 @@
 import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Space } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
 import Lense from "../icons/lense";
+import { protectedRoute } from '../redux/actions';
 const items = [
   {
     label: (
@@ -30,17 +32,27 @@ const items = [
     disabled: true,
   },
 ];
-export const DropdownBar = () => (
+export const DropdownBar = () => {
+
+  const dispatch=useDispatch()
+  const auth=useSelector((state)=>state.authenticate.auth)
+
+  const clickDropdown=(e)=>{
+    e.preventDefault()
+    dispatch(protectedRoute(!auth))
+  }
+  
+  return(
   <Dropdown
     menu={{
       items,
     }}
   >
-    <a onClick={(e) => e.preventDefault()}>
+    <a onClick={clickDropdown}>
       <Space>
         Hover me
         <DownOutlined />
       </Space>
     </a>
   </Dropdown>
-);
+)}

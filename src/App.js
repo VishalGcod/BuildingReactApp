@@ -13,6 +13,7 @@ import { LoginForm2 } from './components/newLoginAntdForm';
 import MapTableDatas from './components/tableMapData';
 import GridLayout from './components/gridLayout';
 import CondRenderTransition from './components/condRender&Transition';
+import { DropdownBar } from './components/dropdownComp';
 
 function App() {
   return (
@@ -39,9 +40,9 @@ function App() {
         {/* <img src={Heaven} alt='heaven'></img> */}
         <Lense />
         {/* <MapDatas /> */}
-        {/* <MapTableDatas/> */}
+        <MapTableDatas/>
         {/* <GridLayout/> */}
-        <CondRenderTransition/>
+        {/* <CondRenderTransition/> */}
       </Provider>
     </div>
   );

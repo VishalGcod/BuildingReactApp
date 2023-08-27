@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { protectedRoute } from '../redux/actions';
+import { Link } from 'react-router-dom';
 
 export const LoginForm2 = () => {
 
@@ -98,6 +99,7 @@ const onFinishFailed = (errorInfo) => {
       <Button type='primary' htmlType='submit'>
         Submit
       </Button>
+      <Link to='/pro'><Button>To Main</Button></Link>
       <Button type='primary' onClick={loggingOut}>
         Logout
       </Button>

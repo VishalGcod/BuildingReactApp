@@ -19,28 +19,27 @@ function App() {
   return (
     <div>
       <Provider store={store}>
-        {/* <Routers>
+        <Routers>
           <div>
             <Link to='/'>
-              <span>Home</span>
-            </Link>
-            <Link to='/login'>
               <span>Login</span>
+            </Link>
+            <Link to='/pro'>
+              <span>Main</span>
             </Link>
           </div>
           <Routes>
+            <Route path='/' element={ <LoginForm2/> } />
             <Route element={<ProtectedRoute />}>
-              <Route path='/' element={<CompOne />} />
+              <Route path='/pro' element={<CompOne />} />
             </Route>
-            <Route Component={EmptyPage} />
+            {/* <Route Component={EmptyPage} /> */}
           </Routes>
-        </Routers> */}
-        {/* <LoginForm /> */}
-        {/* <LoginForm2/> */}
-        {/* <img src={Heaven} alt='heaven'></img> */}
+        </Routers>
+        {/* <LoginForm /> */}        {/* <img src={Heaven} alt='heaven'></img> */}
         <Lense />
         {/* <MapDatas /> */}
-        <MapTableDatas/>
+        {/* <MapTableDatas/> */}
         {/* <GridLayout/> */}
         {/* <CondRenderTransition/> */}
       </Provider>

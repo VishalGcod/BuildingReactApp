@@ -29,14 +29,15 @@ function App() {
             </Link>
           </div>
           <Routes>
-            <Route path='/' element={ <LoginForm2/> } />
+            <Route path='/' element={<LoginForm2 />} />
             <Route element={<ProtectedRoute />}>
               <Route path='/pro' element={<CompOne />} />
             </Route>
             {/* <Route Component={EmptyPage} /> */}
           </Routes>
         </Routers>
-        {/* <LoginForm /> */}        {/* <img src={Heaven} alt='heaven'></img> */}
+        {/* <LoginForm /> */}
+        {/* <img src={Heaven} alt='heaven'></img> */}
         <Lense />
         {/* <MapDatas /> */}
         {/* <MapTableDatas/> */}
